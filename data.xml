@@ -1,0 +1,14 @@
+<events>
+ <event>
+  <loaction>SAN</loaction>
+  <date>5/18</date>
+ </event>
+ <event>
+  <loaction>CA</loaction>
+  <date>6/28</date>
+ </event>
+ <event>
+  <loaction>NY</loaction>
+  <date>9/08</date>
+ </event>
+</events>

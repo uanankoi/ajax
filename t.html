@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clickme1{
+            width: 500px;
+            height: 100px;
+            background: rgb(199, 54, 54);
+        }
+    </style>
+</head>
+<body>
+    <h1>123</h1>
+
+    <div class="data"></div>
+    <div class="clickme1"></div>
+    <div class="data2"></div>
+
+    <script>
+
+      let newone =  {
+       "id": 4,
+       "title": "json-server32",
+       "author": "typicode32"
+      }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT','http://localhost:3004/posts/2',true);
+        xhr.setRequestHeader('Content-type','application/json');
+        let datanew = JSON.stringify(newone);
+        xhr.send(datanew);
+
+        xhr.onload = function(){
+            if(this.status===200){
+                console.log(xhr.responseText)
+            }
+        }
+
+        let data1 = document.querySelector('.data');
+        let data2 = document.querySelector('.data2');
+        let clickme = document.querySelector('.clickme1');
+
+
+
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open('GET','./data.html',true);
+        xhr2.send();
+
+        xhr2.onload = function(){
+            if(this.status===200){
+                console.log(xhr2.responseText)
+                data1.innerHTML=xhr2.responseText;
+            }
+        }
+
+
+        clickme.addEventListener('click',function(e){
+
+            let xhr3 = new XMLHttpRequest();
+        xhr3.open('GET','./data.xml',true);
+        xhr3.send();
+
+        xhr3.onload = function(){
+            if(this.status===200){
+                console.log(xhr3.responseXML)
+                data2.innerHTML=xhr3.responseText;
+
+                let events = document.getElementsByTagName('event')
+                console.log(events+'99')
+                for(i=0;i<events.length;i++){
+                    events[i].index = i;
+                    
+                }
+
+
+
+                
+            }
+        }
+        })
+
+
+
+
+        
+        
+
+    </script>
+</body>
+</html>
