@@ -28,10 +28,10 @@
       }
 
         var xhr = new XMLHttpRequest();
-        xhr.open('PUT','http://localhost:3004/posts/2',true);
-        xhr.setRequestHeader('Content-type','application/json');
-        let datanew = JSON.stringify(newone);
-        xhr.send(datanew);
+        xhr.open('GET','http://localhost:3004/posts/2',true);
+        // xhr.setRequestHeader('Content-type','application/json');
+        // let datanew = JSON.stringify(newone);
+        xhr.send();
 
         xhr.onload = function(){
             if(this.status===200){

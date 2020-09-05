@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json-server CRUD</title>
+    <!-- icon -->
+    <link rel="icon" href="./img/jsonserver.png" type="image/x-icon">
+    <style>
+        *{
+            /* border: red 1px solid; */
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            /* width: 100vw; */
+            /* height: 100vh; */
+            background-size: 300% 300%;
+            background-image: 
+            linear-gradient(45deg,pink,rgb(255, 255, 255),transparent),
+            repeating-linear-gradient(teal 0,teal 50px,transparent 50px,transparent 100px),
+            repeating-linear-gradient(transparent 0,transparent 50px,rgb(223, 131, 45) 50px,red 100px)
+            ;
+        }
+        header{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        h1{
+            font-size: 4rem;
+        }
+        .line{
+            width: 100%;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+        label{
+            width: 100px;
+        }
+        input{
+            margin-left: 10px;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: #000;
+            color: azure;
+        }
+        .box{
+            width: 90%;
+            background-color: rgba(165, 165, 165, 0.3);
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+        .card{
+            width: 23%;
+            /* margin: 20px 0.5%; */
+            /* height: 150px; */
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 5px;
+
+        }
+        .pho{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .cardContent{
+            width: 100%;
+        }
+        .part1,.part2{
+            display: flex;
+            justify-content: center;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        .cota{
+            width: 90vw;
+        }
+
+        footer{
+            width: 100%;
+            height: 150px;
+            background-color: rgb(119, 45, 45);
+            margin-top: 150px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="cota">
+        <header> 
+            <h1>JSON-SERVER CRUD</h1>
+        
+            <div class="line"><label for="name">name:</label><input id="name" type="text"></div>
+            <div class="line"><label for="price">price:</label><input id="price" type="text"></div>
+            <div class="add"><a href="####">新增</a></div>
+            </header>
+            <section>
+                <div class="box">
+                    
+                    <div class="card">
+                        <div class="pho"><img src="./img/w1.png" alt=""></div>
+                        <div class="cardContent">
+                            <div class="part1">
+                                <div class="num">#1</div>
+                                <div class="name">SDA</div>
+                            </div>
+                            <div class="part2">
+                                <p class="price">561<i>TWD</i></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--  -->
+                
+        
+                </div>
+            </section>
+        
+            <footer>aaaaaaaaaaaaaaaaa</footer>
+
+    </div>
+
+   
+
+    <script>
+
+    // 宣告
+    let name = document.querySelector('#name');
+    let price = document.querySelector('#price');
+    let add = document.querySelector('.add');
+    let box = document.querySelector('.box');
+    let imgone = ['w1.png','w2.png','w3.png','w4.png','w5.png'];
+    let random = 0
+    // random = Math.floor(Math.random()*5);
+    //         console.log("9999"+random)
+
+
+    // 
+    // let card =
+    // `<div class="card">
+    //             <div class="pho"><img src="./img/w1.png" alt=""></div>
+    //             <div class="cardContent">
+    //                 <div class="part1">
+    //                     <div class="num">#1</div>
+    //                     <div class="${name.value}">SDA</div>
+    //                 </div>
+    //                 <div class="part2">
+    //                     <p class="price">${price.value}}<i>TWD</i></p>
+    //                 </div>
+    //             </div>
+                
+    //         </div>
+    // `
+
+    // add監聽事件
+    add.addEventListener('click',function(e){
+        if(name.value=='' || price.value=='' || isNaN(price.value) ){
+            alert('請輸入正確值');
+        }else{
+            random = Math.floor(Math.random()*5);
+            // console.log("9999"+random)
+            let card =
+                `
+                            <div class="pho"><img src="./img/w${random+1}.png" alt=""></div>
+                            <div class="cardContent">
+                                <div class="part1">
+                                    <div class="num">#1</div>
+                                    <div class="name">${name.value}</div>
+                                </div>
+                                <div class="part2">
+                                    <p class="price">${price.value}<i>TWD</i></p>
+                                </div>
+                            </div>
+                                
+                `
+            console.log(card);
+            // 新增於畫面
+            let d = document.createElement('div');
+            d.classList.add('card');
+            // box.appendChild(d);
+            d.innerHTML=card;
+            box.appendChild(d);
+
+            // 新增於json-server
+            let data = {
+            "img":"w"+(random+1)+".png",
+            "name": name.value,
+            "price": price.value
+            }
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST','http://localhost:3004/good',true);
+        xhr.setRequestHeader('Content-type','application/json');
+        let jsondata = JSON.stringify(data);
+        xhr.send(jsondata);
+
+        // xhr.onload = function(){
+        //     if(this.status===200){
+        //         console.log(xhr.responseText)
+        //     }
+        // }
+
+        }
+        
+    })
+        
+    // XMLHttpRequest新增
+
+    // let data = {
+    //   "name": "ARFR",
+    //   "price": 88
+    // }
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open('POST','http://localhost:3004/good',true);
+    //     xhr.setRequestHeader('Content-type','application/json');
+    //     let jsondata = JSON.stringify(data);
+    //     xhr.send(jsondata);
+
+    //     xhr.onload = function(){
+    //         if(this.status===200){
+    //             console.log(xhr.responseText)
+    //         }
+    //     }
+
+    // 讀取
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET','http://localhost:3004/good',true);
+        xhr.send();
+
+        xhr.onload = function(){
+            if(this.status===200){
+                console.log(xhr.responseText)
+
+                let da = JSON.parse(xhr.responseText)
+                console.log(da[2].img);
+                for(i=0;i<da.length;i++){
+                    let card2 = 
+                    `
+                    <div class="pho"><img src="./img/${da[i].img}" alt=""></div>
+                            <div class="cardContent">
+                                <div class="part1">
+                                    <div class="num">#${da[i].id}</div>
+                                    <div class="name">${da[i].name}</div>
+                                </div>
+                                <div class="part2">
+                                    <p class="price">${da[i].price}<i>TWD</i></p>
+                                </div>
+                            </div>
+                    `
+                    // 新增於畫面
+            let d = document.createElement('div');
+            d.classList.add('card');
+            // box.appendChild(d);
+            d.innerHTML=card2;
+            box.appendChild(d);
+
+                }
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>

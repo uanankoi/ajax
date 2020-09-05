@@ -1,18 +1,82 @@
 {
   "posts": [
     {
-      "id": 2,
-      "title": "json-server32",
-      "author": "typicode32"
+      "id": 2
     },
     {
       "id": 3,
       "title": "json-server3",
       "author": "typicode3"
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "title": "json-server3",
+      "author": "typicode3",
+      "id": 10
+    },
+    {
+      "title": "json-server55",
+      "author": "typicode35",
+      "id": 11
     }
   ],
   "comments": [],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "good": [
+    {
+      "img": "w3.png",
+      "name": "ujyu",
+      "price": "535",
+      "id": 45
+    },
+    {
+      "img": "w4.png",
+      "name": "dsvs",
+      "price": "504",
+      "id": 46
+    },
+    {
+      "img": "w1.png",
+      "name": "dyj",
+      "price": "504",
+      "id": 47
+    },
+    {
+      "img": "w1.png",
+      "name": "dyj",
+      "price": "504",
+      "id": 48
+    },
+    {
+      "img": "w3.png",
+      "name": "dyj",
+      "price": "504",
+      "id": 49
+    },
+    {
+      "img": "w1.png",
+      "name": "dyj",
+      "price": "504",
+      "id": 50
+    }
+  ]
 }
