@@ -43,22 +43,10 @@
   },
   "good": [
     {
-      "img": "w3.png",
-      "name": "ujyu",
-      "price": "535",
-      "id": 45
-    },
-    {
       "img": "w4.png",
       "name": "dsvs",
       "price": "504",
       "id": 46
-    },
-    {
-      "img": "w1.png",
-      "name": "dyj",
-      "price": "504",
-      "id": 47
     },
     {
       "img": "w1.png",
@@ -73,10 +61,22 @@
       "id": 49
     },
     {
-      "img": "w1.png",
-      "name": "dyj",
-      "price": "504",
+      "img": "w5.png",
+      "name": "oiliu",
+      "price": "404",
       "id": 50
+    },
+    {
+      "img": "w1.png",
+      "name": "yklkj",
+      "price": "453",
+      "id": 53
+    },
+    {
+      "img": "w2.png",
+      "name": "ukkyk",
+      "price": "782",
+      "id": 54
     }
   ]
 }
